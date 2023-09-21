@@ -16,7 +16,7 @@
       </p>
       <button class="download-btn">Download My Resume</button>
       <p>
-        Thank you for visiting my portfolio. If you'd like to collaborate or chat about football, tech, or anything in between, feel free to <a href="mailto:your-email@example.com">reach out</a>!
+        Thank you for visiting my portfolio. If you'd like to collaborate or chat about football, tech, or anything in between, feel free to <a href="mailto:s223341726@deakin.edu.au">reach out</a>!
       </p>
     </div>
   </section>

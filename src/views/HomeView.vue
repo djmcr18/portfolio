@@ -29,7 +29,7 @@
     </section>
 
     <footer class="portfolio-footer">
-      <p>Thank you for visiting! If you're interested in collaboration or have any inquiries, feel free to <a href="mailto:your-email@example.com">reach out</a>.</p>
+      <p>Thank you for visiting! If you're interested in collaboration or have any inquiries, feel free to <a href="mailto:s223341726@deakin.edu.au">reach out</a>.</p>
     </footer>
   </section>
 </template>
