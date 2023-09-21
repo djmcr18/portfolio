@@ -1,6 +1,6 @@
 <template>
     <div class="about-us-form">
-      <h2>About Us Feedback</h2>
+      <h2>Get in touch!</h2>
       <form @submit.prevent="handleSubmit">
         <div class="form-group">
           <label for="name">Name:</label>
@@ -13,8 +13,8 @@
         </div>
   
         <div class="form-group">
-          <label for="feedback">Feedback:</label>
-          <textarea id="feedback" v-model="formData.feedback" required></textarea>
+          <label for="enquiry">Enquiry:</label>
+          <textarea id="enquiry" v-model="formData.enquiry" required></textarea>
         </div>
   
         <button type="submit">Submit</button>
@@ -28,7 +28,7 @@
   const formData = ref({
     name: '',
     email: '',
-    feedback: ''
+    enquiry: ''
   });
   
   const handleSubmit = () => {
@@ -40,18 +40,18 @@
     formData.value = {
       name: '',
       email: '',
-      feedback: ''
+      enquiry: ''
     };
   };
   </script>
   
   <style scoped>
   .about-us-form {
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
   }
   
   .form-group {

@@ -1,22 +1,22 @@
 <template>
   <section class="about-me-page">
     <div class="profile-image">
-      <img src="../assets/images/diego-ph-fIq0tET6llw-unsplash.jpg" alt="Your Name" class="hover-effect">
+      <img src="../assets/images/SoccerDP.jpg" alt="Diego Miranda Ciudad Real" class="hover-effect">
     </div>
     <div class="about-content">
       <h1>About Me</h1>
       <p>
-        Hello! I'm [Your Name], a passionate web developer with over [X years] of experience in creating dynamic and responsive websites. I specialize in [specific technologies or fields, e.g., "React, Vue.js, and Node.js"].
+        Hi! I'm Diego, a dedicated student currently undertaking a Bachelor of Information Technology with a major in Cybersecurity at Deakin University. My enthusiasm for technology drives my aspirations in software development and cybersecurity.
       </p>
       <p>
-        I graduated from [Your University or School] with a degree in [Your Degree]. Since then, I've worked with various clients and companies, delivering high-quality web solutions.
+        Beyond the world of IT, I have another passion – football. I'm proud to play as a semi-professional footballer for Werribee City FC in NPL Victoria. Balancing both my academic pursuits and athletic commitments has instilled in me discipline, teamwork, and a relentless drive to excel.
       </p>
       <p>
-        In my free time, I love [your hobbies, e.g., "hiking, reading tech blogs, and exploring new coffee shops"].
+        When I'm not on the field or behind the computer, I enjoy spending time with family and friends, usually eating a lot of food :).
       </p>
       <button class="download-btn">Download My Resume</button>
       <p>
-        Thank you for visiting my portfolio. If you'd like to collaborate or just chat, feel free to <a href="mailto:your-email@example.com">reach out</a>!
+        Thank you for visiting my portfolio. If you'd like to collaborate or chat about football, tech, or anything in between, feel free to <a href="mailto:your-email@example.com">reach out</a>!
       </p>
     </div>
   </section>
@@ -31,7 +31,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 0;
+  padding: px 4%;
   font-family: 'Arial', sans-serif;
   max-width: 1200px;
   margin: 0 auto;
@@ -42,7 +42,8 @@
 
 .profile-image {
   flex: 1;
-  padding-right: 50px;
+  padding-right: 25px;
+  padding-left: 25px;
 }
 
 .profile-image img.hover-effect {
@@ -74,18 +75,18 @@
 }
 
 .about-content a {
-  color: #e74c3c;
+  color: #007BFF;
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .about-content a:hover {
-  color: #c0392b;
+  color: #007BFF;
 }
 
 .download-btn {
   display: inline-block;
-  background-color: #e74c3c;
+  background-color: #007BFF;
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
@@ -95,6 +96,6 @@
 }
 
 .download-btn:hover {
-  background-color: #c0392b;
+  background-color: #007BFF;
 }
 </style>

@@ -3,10 +3,6 @@ import { RouterLink, RouterView } from 'vue-router'
 import FooterComponent from './components/FooterComponent.vue';
 </script>
 
-
-
-
-<!-- Fix footer -->
 <template>
   <div class="nav-container">
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
@@ -34,64 +30,53 @@ import FooterComponent from './components/FooterComponent.vue';
 
 </template>
 
-<!-- 
-<template>
-  <div class="nav-container">
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="dropdown-btn">Menu</label>
-    <div class="links-container">
-      <RouterLink class="nav-link" to="/">Home</RouterLink>
-      <RouterLink class="nav-link" to="/about">About</RouterLink>
-      <RouterLink class="nav-link" to="/contact">Contact Us</RouterLink>
-    </div>
-  </div>
-
-  <RouterView />
-
-  <FooterComponent/>
-</template> -->
-
 <style scoped>
-/* Add this to your styles */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4; /* Lighter Background */
+    color: #333; /* Darker Text */
+}
+
 .page-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* This ensures the container takes at least the full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .content-wrapper {
-  flex: 1; /* This makes the content take up all available space, pushing the footer to the bottom */
+    flex: 1;
+    padding: 40px 10%; /* More Padding */
 }
 
-
 .nav-container {
-  display: flex;
-  justify-content: center;
-  background-color: #2c3e50;
-  padding: 10px 0;
-  position: relative;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    background-color: #fff; /* White Background */
+    padding: 20px 0;
+    position: relative;
+    flex-wrap: wrap;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); /* Subtle Shadow */
 }
 
 .nav-link {
-  text-decoration: none;
-  color: #ecf0f1;
-  padding: 10px 20px;
-  margin: 0 10px;
-  font-size: 1.1em;
-  transition: background-color 0.3s, color 0.3s;
-  border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    color: #555;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1.1em;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
 }
 
 .nav-link:hover {
-  background-color: #34495e;
-  color: #bdc3c7;
+    background-color: #f8f8f8;
+    color: #333;
 }
 
 .router-link-active {
-  color: #e74c3c;
-  background-color: #c0392b;
-  border-radius: 4px;
+    color: #007BFF; /* Vibrant blue for active link */
 }
 
 /* Mobile styles */
@@ -100,13 +85,17 @@ import FooterComponent from './components/FooterComponent.vue';
 }
 
 .dropdown-btn {
+  font-family: 'Roboto', sans-serif;
   display: none;
-  background-color: #34495e;
-  color: #ecf0f1;
+  background-color: #f8f8f8;
+  color: #333;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
   border-radius: 4px;
+}
+.dropdown-btn:hover {
+  background-color: #e8e8e8;
 }
 
 .links-container {
@@ -126,7 +115,8 @@ import FooterComponent from './components/FooterComponent.vue';
     top: 100%;
     left: 0;
     right: 0;
-    background-color: #2c3e50;
+    background-color: #fff;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
   }
 
   .menu-toggle:checked + .dropdown-btn + .links-container {

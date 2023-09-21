@@ -2,49 +2,51 @@
     <footer class="amazing-footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h4>About Us</h4>
-          <p>We are a team of passionate developers and designers dedicated to creating the best web experiences.</p>
+          <h4>About Me</h4>
+          <p>Diego Miranda Ciudad Real, a student of Bachelor of Information Technology (Major in Cybersecurity) at Deakin University.</p>
         </div>
         <div class="footer-section">
-          <h4>Quick Links</h4>
+          <h4>Navigation</h4>
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Portfolio</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">Blog</a></li>
+            <li><a href="https://github.com/djmcr18/space_game" target="_blank">My Game Project</a></li>
+            <li><a href="https://github.com/djmcr18" target="_blank">My GitHub</a></li>
           </ul>
         </div>
         <div class="footer-section">
           <h4>Contact Info</h4>
-          <p><i class="fas fa-map-marker-alt"></i> 123 Street, City, Country</p>
-          <p><i class="fas fa-phone"></i> +1 234 567 890</p>
-          <p><i class="fas fa-envelope"></i> contact@example.com</p>
+          <p><i class="fas fa-map-marker-alt"></i>Deakin University</p>
+          <p><i class="fas fa-envelope"></i>s223341273@deakin.edu.au</p>
+          <!-- You can add more personal contact information if you wish, such as LinkedIn or other social media profiles -->
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2023 Amazing Company. All rights reserved.</p>
+        <p>&copy; 2023 Diego Miranda Ciudad Real. All rights reserved.</p>
       </div>
     </footer>
-  </template>
+</template>
   
   <script setup>
   // You can add any reactive properties or methods if needed.
   </script>
   
   <style scoped>
-  .amazing-footer {
-    background-color: #2c3e50;
-    color: #ecf0f1;
+.amazing-footer {
+    background-color: #fff; /* White Background */
+    color: #333; /* Darker Text */
     padding: 40px 0;
+    border-top: 1px solid #ddd; /* Lighter Border */
     font-family: 'Arial', sans-serif;
-  }
+}
   
   .footer-content {
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 10%;
   }
   
   .footer-section {
@@ -57,7 +59,7 @@
   }
   
   .footer-section h4 {
-    border-bottom: 2px solid #e74c3c;
+    border-bottom: 2px solid #007BFF;
     padding-bottom: 10px;
     margin-bottom: 20px;
   }
@@ -67,13 +69,13 @@
   }
   
   .footer-section a {
-    color: #ecf0f1;
+    color: #000;
     text-decoration: none;
     transition: color 0.3s;
   }
   
   .footer-section a:hover {
-    color: #e74c3c;
+    color: #007BFF;
   }
   
   .footer-bottom {
