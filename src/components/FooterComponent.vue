@@ -4,12 +4,12 @@
           <div class="footer-section">
               <h4>Navigation</h4>
               <ul>
-                  <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
-                  <li><a href="/about"><i class="fas fa-user"></i> About</a></li>
-                  <li><a href="/blogs"><i class="fas fa-blog"></i> Blog</a></li>
-                  <li><a href="/CV"><i class="fas fa-file-alt"></i> CV/Resume</a></li>
-                  <li><a href="/admin-auth"><i class="fas fa-user-shield"></i> Admin</a></li>
-                  <li><a href="https://github.com/djmcr18" target="_blank"><i class="fab fa-github"></i> My GitHub</a></li>
+                <li><router-link to="/"><i class="fas fa-home"></i> Home</router-link></li>
+                <li><router-link to="/about"><i class="fas fa-user"></i> About</router-link></li>
+                <li><router-link to="/blogs"><i class="fas fa-blog"></i> Blog</router-link></li>
+                <li><router-link to="/CV"><i class="fas fa-file-alt"></i> CV/Resume</router-link></li>
+                <li><router-link to="/admin-auth"><i class="fas fa-user-shield"></i> Admin</router-link></li>
+                <li><a href="https://github.com/djmcr18" target="_blank"><i class="fab fa-github"></i> My GitHub</a></li>
               </ul>
           </div>
 
