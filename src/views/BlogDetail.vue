@@ -9,19 +9,26 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import { db } from "../data/firebase.js"; // Import the Firestore instance
+import { doc, getDoc } from 'firebase/firestore'; // Import Firestore functions
 
 const route = useRoute();
-const router = useRouter();  // Add this for navigation functionality
+const router = useRouter();
 const blogId = route.params.id;
 
 const blog = ref({});
 
 onMounted(async () => {
-    const blogsFromStorage = JSON.parse(localStorage.getItem('blogs'));
-    blog.value = blogsFromStorage.blogs.find(b => b.id === parseInt(blogId));
+    // Reference to the specific blog in Firestore
+    const blogRef = doc(db, "blogs", blogId);
+    
+    // Fetch the blog details from Firestore
+    const blogDoc = await getDoc(blogRef);
+    if (blogDoc.exists()) {
+        blog.value = blogDoc.data();
+    }
 });
 
-// Add this function for navigation functionality
 const backToBlogList = () => {
     router.push({ name: 'BlogList' });
 };
