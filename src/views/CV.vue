@@ -3,7 +3,7 @@
         <!-- LEFT PANEL -->
         <div class="left-panel">
             <div class="profile-pic-container">
-                <img class="profile-pic" src="src/assets/images/SoccerDP.jpg" alt="Diego Miranda Ciudad Real">
+                <img class="profile-pic" src="../assets/images/SoccerDP.jpg" alt="Diego Miranda Ciudad Real">
                 <div class="name-overlay">Diego Miranda Ciudad Real</div>
             </div>
             <h5 style="text-align:center;"><strong>Information Technology Student</strong></h5>
