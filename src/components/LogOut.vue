@@ -22,7 +22,7 @@ const prepareLogout = () => {
 
 const handleLogout = () => {
     localStorage.setItem('isLoggedIn', 'false');
-    window.location.reload();
+    window.location.href = '/admin-auth';
 };
 </script>
 
