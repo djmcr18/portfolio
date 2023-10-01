@@ -2,7 +2,7 @@
     <div class="admin-dashboard">
         <h2>Hi {{ username }}!</h2>
         <h5>You are currently logged in as the admin.</h5>
-        <button v-if="!loggingOut" @click="prepareLogout">Log out</button>
+        <br><button v-if="!loggingOut" @click="prepareLogout">Log out</button>
         <p v-if="loggingOut" class="logging-out">Logging out...</p>
     </div>
 </template>

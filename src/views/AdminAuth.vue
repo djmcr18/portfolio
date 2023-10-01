@@ -6,7 +6,7 @@
             <form @submit.prevent="handleRegistration">
                 <input type="text" v-model="adminCredentials.username" placeholder="Username" required>
                 <input type="password" v-model="adminCredentials.password" placeholder="Password" required>
-                <button type="submit">Register</button>
+                <br><button type="submit">Register</button>
                 <p v-if="registerMessage" :class="{'success-message': registerSuccess, 'error-message': !registerSuccess}">{{ registerMessage }}</p>
             </form>
         </section>
@@ -18,7 +18,7 @@
             <form @submit.prevent="handleLogin">
                 <input type="text" v-model="loginCredentials.username" placeholder="Username" required>
                 <input type="password" v-model="loginCredentials.password" placeholder="Password" required>
-                <button type="submit">Login</button>
+                <br><button type="submit">Login</button>
                 <p v-if="loginMessage" :class="{'success-message': loginSuccess, 'error-message': !loginSuccess}">{{ loginMessage }}</p>
             </form>
         </section>
