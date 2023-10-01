@@ -1,23 +1,31 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import FooterComponent from './components/FooterComponent.vue';
+import TopBanner from './components/TopBanner.vue';
 </script>
 
 <template>
+<div id="app">
+    <TopBanner />  
   <div class="nav-container">
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
     <label for="menu-toggle" class="dropdown-btn">Menu</label>
     <div class="links-container">
       <RouterLink class="nav-link" to="/">Home</RouterLink>
       <RouterLink class="nav-link" to="/about">About</RouterLink>
-      <RouterLink class="nav-link" to="/contact">Contact Us</RouterLink>
+      <RouterLink class="nav-link" to="/blogs">Blog</RouterLink>
+      <RouterLink class="nav-link" to="/CV">CV</RouterLink>
+      <RouterLink class="nav-link" to="/admin-auth">Admin Registration</RouterLink>
     </div>
   </div>
+</div>  
 
   <div class="page-container">
     <div class="content-wrapper">
       <!-- Your main content goes here -->
-      <RouterView />
+      <transition name="fade" mode="out-in">
+        <RouterView />
+      </transition>
     </div>
     <footer class="amazing-footer">
       <!-- Your footer content as provided -->

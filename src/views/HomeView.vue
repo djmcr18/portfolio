@@ -12,19 +12,19 @@
     </section>
 
     <section class="portfolio-projects">
-      <h2>My Projects</h2>
-      <p>
-        Below are some links to some of my creations
-      </p>
-      <div class="projects-grid">
-        <div class="project-card" v-for="project in projects" :key="project.id">
-          <img :src="project.image" :alt="project.name" />
-          <h3>{{ project.name }}</h3>
-          <p>{{ project.description }}</p>
-          <a v-if="project.name === 'My GitHub Portfolio'" href="https://github.com/djmcr18" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-          <a v-else :href="'https://github.com/djmcr18/space_game'" target="_blank" rel="noopener noreferrer">View Project</a>
-        </div>
-
+      <div class="projects-container"> <!-- Container around the projects -->
+          <h2>My Projects</h2>
+          <p>
+            Below are links to some of my creations
+          </p>
+          <div class="projects-grid">
+            <div class="project-card" v-for="project in projects" :key="project.id">
+                <img :src="project.image" :alt="project.name" />
+                <h3>{{ project.name }}</h3>
+                <p>{{ project.description }}</p>
+                <a :href="project.link" target="_blank" rel="noopener noreferrer">View Project</a>
+            </div>
+          </div>
       </div>
     </section>
 
@@ -36,26 +36,9 @@
 
 <script setup>
 import { ref } from 'vue';
+import projectsData from '../data/projects.json';
 
-import projectImage1 from '../assets/images/gameproject.png';
-import projectImage2 from '../assets/images/github.png'
-
-
-const projects = ref([
-  {
-    id: 1,
-    name: 'SPACE GAME',
-    description: 'A game I developed using C++ during my time in SIT102 - Introduction to Programming. Dive into an interstellar adventure with SPACE GAME!',
-    image: projectImage1
-  },
-  {
-    id: 2,
-    name: 'My GitHub Portfolio',
-    description: 'A collection of my projects, contributions, and coding journey. Explore my GitHub portfolio to get a deeper insight into my skills and experiences.',
-    image: projectImage2
-  }
-]);
-
+const projects = ref(projectsData);
 </script>
 
 <style scoped>
@@ -83,22 +66,28 @@ const projects = ref([
 
 .portfolio-projects {
   margin: 50px auto; /* Centered the section with auto margins */
-  max-width: 600px;  /* Set a max-width to prevent it from stretching too wide */
+  max-width: 900px;  /* Set a max-width to prevent it from stretching too wide */
   text-align: center;
 }
 
+.projects-container {
+  max-width: 1400px; /* Increase or adjust as needed */
+  margin: 0 auto;
+}
 .projects-grid {
-  display: flex; /* Changed to flex for better centering */
-  justify-content: center; /* Center the items horizontally */
-  align-items: center; /* Center the items vertically */
+  display: flex;
+  flex-wrap: wrap;  /* Allow the items to wrap */
   gap: 20px;
+  justify-content: space-between; /* Distribute space between items */
 }
 
 .project-card {
+  flex: 1 1 calc(33.33% - 20px); /* Take up one third of the container width minus the gap */
+  max-width: calc(33.33% - 20px); /* Max width of one third of the container width minus the gap */
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
-  padding-bottom: 20px; /* Added padding to the bottom of the card */
+  padding-bottom: 20px;
 }
 
 .project-card img {
@@ -120,5 +109,19 @@ const projects = ref([
 
 .portfolio-footer {
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    flex: 1 1 calc(50% - 20px); /* Take up half the container width minus the gap */
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .project-card {
+    flex: 1 1 100%; /* On very small screens, make the project cards take the full width */
+    max-width: 100%;
+  }
 }
 </style>

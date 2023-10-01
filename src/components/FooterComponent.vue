@@ -1,93 +1,134 @@
 <template>
-    <footer class="amazing-footer">
+  <footer class="amazing-footer">
       <div class="footer-content">
-        <div class="footer-section">
-          <h4>About Me</h4>
-          <p>Diego Miranda Ciudad Real, a student of Bachelor of Information Technology (Major in Cybersecurity) at Deakin University.</p>
-        </div>
-        <div class="footer-section">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="https://github.com/djmcr18/space_game" target="_blank">My Game Project</a></li>
-            <li><a href="https://github.com/djmcr18" target="_blank">My GitHub</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Contact Info</h4>
-          <p><i class="fas fa-map-marker-alt"></i>Deakin University</p>
-          <p><i class="fas fa-envelope"></i>s223341273@deakin.edu.au</p>
-          <!-- You can add more personal contact information if you wish, such as LinkedIn or other social media profiles -->
-        </div>
+          <div class="footer-section">
+              <h4>Navigation</h4>
+              <ul>
+                  <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                  <li><a href="/about"><i class="fas fa-user"></i> About</a></li>
+                  <li><a href="/blogs"><i class="fas fa-blog"></i> Blog</a></li>
+                  <li><a href="/CV"><i class="fas fa-file-alt"></i> CV/Resume</a></li>
+                  <li><a href="/admin-auth"><i class="fas fa-user-shield"></i> Admin</a></li>
+                  <li><a href="https://github.com/djmcr18" target="_blank"><i class="fab fa-github"></i> My GitHub</a></li>
+              </ul>
+          </div>
+
+          <div class="footer-section">
+              <h4>Contact Info</h4>
+              <div class="contact-item">
+                  <a href="mailto:djmcr.18@gmail.com"><i class="fas fa-envelope"></i> djmcr.18@gmail.com</a>
+              </div>
+              <div class="contact-item">
+                  <i class="fas fa-phone"></i> 04XX XXX XXX
+              </div>
+              <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i> Melbourne, Victoria
+              </div>
+          </div>
+
+          <div class="footer-section">
+              <h4>Connect with Me</h4>
+              <ul>
+                  <li><a href="https://www.linkedin.com/in/diego-miranda-22bb51269/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                  <li><a href="https://www.instagram.com/diego_mcr/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                  <li><a href="https://www.facebook.com/hiteminthedinks/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+              </ul>
+          </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2023 Diego Miranda Ciudad Real. All rights reserved.</p>
+          <p>&copy; 2023 Diego Miranda Ciudad Real. All rights reserved.</p>
       </div>
-    </footer>
+  </footer>
 </template>
-  
-  <script setup>
-  // You can add any reactive properties or methods if needed.
-  </script>
-  
-  <style scoped>
+
+<style scoped>
 .amazing-footer {
-    background-color: #fff; /* White Background */
-    color: #333; /* Darker Text */
-    padding: 40px 0;
-    border-top: 1px solid #ddd; /* Lighter Border */
-    font-family: 'Arial', sans-serif;
+  background-color: #fff;
+  color: #333;
+  padding: 40px 0;
+  border-top: 1px solid #ddd;
+  font-family: 'Arial', sans-serif;
 }
-  
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10%;
+}
+
+.footer-section {
+  flex: 1;
+  margin-right: 20px;
+  margin-bottom: 30px;  /* Added for consistent spacing */
+}
+
+.footer-section:last-child {
+  margin-right: 0;
+}
+
+.footer-section h4 {
+  border-bottom: 2px solid #007BFF;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer-section li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.footer-section i {
+  margin-right: 10px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-section a {
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-section a:hover,
+.footer-section a:hover i {
+  color: #007BFF;
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #34495e;
+  padding-top: 20px;
+}
+
+.contact-item {
+  margin-bottom: 15px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
   .footer-content {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 10%;
+      flex-direction: column;
   }
-  
+
   .footer-section {
-    flex: 1;
-    margin-right: 20px;
+      margin-right: 0;
+      margin-bottom: 20px;
   }
-  
+
   .footer-section:last-child {
-    margin-right: 0;
+      margin-bottom: 0;
   }
-  
-  .footer-section h4 {
-    border-bottom: 2px solid #007BFF;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .footer-section p, .footer-section li {
-    margin-bottom: 10px;
-  }
-  
-  .footer-section a {
-    color: #000;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .footer-section a:hover {
-    color: #007BFF;
-  }
-  
-  .footer-bottom {
-    text-align: center;
-    margin-top: 40px;
-    border-top: 1px solid #34495e;
-    padding-top: 20px;
-  }
-  
-  /* If you're using Font Awesome for icons */
-  .fas {
-    margin-right: 10px;
-  }
-  </style>
-  
+}
+</style>

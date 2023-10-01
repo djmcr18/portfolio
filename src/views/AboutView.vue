@@ -1,10 +1,10 @@
 <template>
   <section class="about-me-page">
     <div class="profile-image">
-      <img src="../assets/images/SoccerDP.jpg" alt="Diego Miranda Ciudad Real" class="hover-effect">
+      <img src="src/assets/images/CoachingPhoto.jpg" alt="Diego Miranda Ciudad Real" class="hover-effect">
     </div>
     <div class="about-content">
-      <h1>About Me</h1>
+      <h1 style="text-align:center;">About Me</h1>
       <p>
         Hi! I'm Diego, a dedicated student currently undertaking a Bachelor of Information Technology with a major in Cybersecurity at Deakin University. My enthusiasm for technology drives my aspirations in software development and cybersecurity.
       </p>
@@ -14,7 +14,9 @@
       <p>
         When I'm not on the field or behind the computer, I enjoy spending time with family and friends, usually eating a lot of food :).
       </p>
-      <button class="download-btn">Download My Resume</button>
+      <router-link to="/CV">
+        <button>View My Resume</button>
+      </router-link>  
       <p>
         Thank you for visiting my portfolio. If you'd like to collaborate or chat about football, tech, or anything in between, feel free to <a href="mailto:s223341726@deakin.edu.au">reach out</a>!
       </p>
@@ -82,17 +84,6 @@
 
 .about-content a:hover {
   color: #007BFF;
-}
-
-.download-btn {
-  display: inline-block;
-  background-color: #007BFF;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 .download-btn:hover {
