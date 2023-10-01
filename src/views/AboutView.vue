@@ -1,7 +1,7 @@
 <template>
   <section class="about-me-page">
     <div class="profile-image">
-      <img src="src/assets/images/CoachingPhoto.jpg" alt="Diego Miranda Ciudad Real" class="hover-effect">
+      <img src="../assets/images/CoachingPhoto.jpg" alt="Coaching Photo" class="hover-effect">
     </div>
     <div class="about-content">
       <h1 style="text-align:center;">About Me</h1>
