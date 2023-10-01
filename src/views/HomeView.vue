@@ -19,7 +19,7 @@
           </p>
           <div class="projects-grid">
             <div class="project-card" v-for="project in projects" :key="project.id">
-                <img :src="project.image" :alt="project.name" />
+                <img :src="getImage(project)" :alt="project.name" />
                 <h3>{{ project.name }}</h3>
                 <p>{{ project.description }}</p>
                 <a :href="project.link" target="_blank" rel="noopener noreferrer">View Project</a>
@@ -36,9 +36,23 @@
 
 <script setup>
 import { ref } from 'vue';
+import gameProjectImage from '../assets/images/gameproject.png';
+import foopyProjectImage from '../assets/images/FoopyProjectImage.jpeg';
+import githubImage from '../assets/images/github.png';
 import projectsData from '../data/projects.json';
 
 const projects = ref(projectsData);
+
+const imageMap = {
+    gameproject: gameProjectImage,
+    foopy: foopyProjectImage,
+    github: githubImage
+};
+
+// Use a method to return the image based on project data
+const getImage = (project) => {
+    return imageMap[project.image];
+};
 </script>
 
 <style scoped>

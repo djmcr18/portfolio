@@ -71,7 +71,7 @@ try {
     if (localStorage.getItem('blogs')) {
         data = JSON.parse(localStorage.getItem('blogs'));
     } else {
-        const response = await fetch('src/data/blogs.json');
+        const response = await fetch('../data/blogs.json');
         if (!response.ok) throw new Error("Couldn't fetch blogs");
         data = await response.json();
         // Populate localStorage with initial blog data

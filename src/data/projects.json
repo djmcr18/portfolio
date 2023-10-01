@@ -3,21 +3,21 @@
         "id": 1,
         "name": "SPACE GAME",
         "description": "A game I developed using C++ during my time in SIT102 - Introduction to Programming. Dive into an interstellar adventure with SPACE GAME!",
-        "image": "src/assets/images/gameproject.png",
+        "image": "gameproject",
         "link": "https://github.com/djmcr18/SPACEGAME"
     },
     {
         "id": 2,
         "name": "FOOPY",
         "description": "A project currently under construction for my SIT102 Web Dev class. FOOPY is a site/shop for football lovers.",
-        "image": "src/assets/images/FoopyProjectImage.jpeg",
+        "image": "foopy",
         "link": "https://github.com/djmcr18/3.1D"
     },
     {
         "id": 3,
         "name": "My GitHub Portfolio",
         "description": "A collection of my projects, contributions, and coding journey. Explore my GitHub portfolio to get a deeper insight into my skills and experiences.",
-        "image": "src/assets/images/github.png",
+        "image": "github",
         "link": "https://github.com/djmcr18"
     }
 ]
