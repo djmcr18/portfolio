@@ -9,9 +9,11 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const username = ref(localStorage.getItem('adminUsername'));
 const loggingOut = ref(false);
+const router = useRouter();
 
 const prepareLogout = () => {
     loggingOut.value = true;
@@ -22,7 +24,7 @@ const prepareLogout = () => {
 
 const handleLogout = () => {
     localStorage.setItem('isLoggedIn', 'false');
-    window.location.href = '/admin-auth';
+    router.push('/');
 };
 </script>
 
