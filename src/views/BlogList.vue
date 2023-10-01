@@ -14,6 +14,7 @@
                 <div v-if="isAdminLoggedIn">
                     <button @click="editBlog(blog.id)">Edit</button>
                     <button @click="deleteBlog(blog.id)">Delete</button>
+                    <button @click="addBlog">Add New Blog</button>
                 </div>
             </div>
         </div>
@@ -22,12 +23,22 @@
         <div v-if="showAddBlogModal">
             <div class="modal-backdrop" @click="showAddBlogModal = false"></div>
             <div class="modal">
-                <h2>Add New Blog</h2>
-                <input v-model="newBlog.title" placeholder="Blog Title">
-                <textarea v-model="newBlog.body" placeholder="Blog Content"></textarea>
-                <button @click="saveNewBlog">Save</button>
+                <h2 class="edit-blog-title">Add New Blog</h2>
+                <div class="input-group">
+                    <label for="add-blog-title">Title:</label>
+                    <input id="add-blog-title" v-model="newBlog.title" placeholder="Blog Title">
+                </div>
+                <div class="input-group">
+                    <label for="add-blog-body">Body:</label>
+                    <textarea id="add-blog-body" v-model="newBlog.body" placeholder="Blog Content"></textarea>
+                </div>
+                <div class="modal-buttons">
+                    <button @click="saveNewBlog">Save</button>
+                    <button @click="showAddBlogModal = false">Cancel</button>
+                </div>
             </div>
         </div>
+
 
         <!-- Edit Blog Modal -->
         <div v-if="showEditModal">
@@ -53,8 +64,10 @@
   
 <script setup>
 import { ref, onMounted } from 'vue';
+import blogsData from '../data/blogs.json';
 
-const blogs = ref([]);
+// Initialize blogs from blogs.json
+const blogs = ref(blogsData.blogs);
 const isAdminLoggedIn = ref(localStorage.getItem('isLoggedIn') === 'true');
 const editedBlog = ref(null);
 const showEditBlogModal = ref(false);
@@ -62,27 +75,6 @@ const showEditBlogModal = ref(false);
 const truncatedBody = (body) => {
   return body.length > 200 ? body.substring(0, 200) + '...' : body;
 };
-
-onMounted(async () => {
-let data;
-
-try {
-    // Check if blogs exist in localStorage
-    if (localStorage.getItem('blogs')) {
-        data = JSON.parse(localStorage.getItem('blogs'));
-    } else {
-        const response = await fetch('../data/blogs.json');
-        if (!response.ok) throw new Error("Couldn't fetch blogs");
-        data = await response.json();
-        // Populate localStorage with initial blog data
-        localStorage.setItem('blogs', JSON.stringify(data));
-    }
-    
-    blogs.value = data.blogs;
-} catch (error) {
-    console.error("Error fetching blogs:", error);
-}
-});
 
 const showEditModal = ref(false);  // For controlling the visibility of the edit modal
 
@@ -130,7 +122,7 @@ const addBlog = () => {
 const saveNewBlog = () => {
     if (newBlog.value.title && newBlog.value.body) {
     const blogsFromStorage = JSON.parse(localStorage.getItem('blogs'));
-    const newId = blogsFromStorage.blogs.length + 1;  // Simple ID incrementation, might need a more robust solution for larger apps
+    const newId = blogsFromStorage.blogs.length + 1;  // Simple ID incrementation
 
     const updatedBlog = { 
     id: newId, 
@@ -145,10 +137,10 @@ const saveNewBlog = () => {
     blogs.value = blogsFromStorage.blogs;
 
     showAddBlogModal.value = false;
-}
+    }
 };
-
 </script>
+
 
 <style scoped>
 .modal-backdrop {
