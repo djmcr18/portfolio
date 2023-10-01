@@ -295,11 +295,16 @@ a:hover {
 @media only screen and (max-width: 768px) {
     .cv-container {
         flex-direction: column;
+        margin: 0; 
+        padding: 0; 
+        box-sizing: border-box; 
     }
 
     .left-panel, .right-panel {
         width: 100%;
-        margin-right: 0;
+        margin: 0; /* Reset any margins */
+        padding: 0; /* Reset any padding */
+        box-sizing: border-box; /* Ensure padding and border are included in the total width */
         margin-bottom: 15px;
     }
 }

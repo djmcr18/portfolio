@@ -41,7 +41,7 @@
 
 
         <!-- Edit Blog Modal -->
-        <div v-if="showEditModal">
+        <div v-if="showEditBlogModal">
             <div class="modal-backdrop" @click="closeEditModal"></div>
             <div class="modal">
                 <h2 class="edit-blog-title">Edit Blog</h2>
@@ -64,10 +64,10 @@
   
 <script setup>
 import { ref, onMounted } from 'vue';
-import blogsData from '../data/blogs.json';
+import { db } from "../data/firebase.js";
+import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
 
-// Initialize blogs from blogs.json
-const blogs = ref(blogsData.blogs);
+const blogs = ref([]);
 const isAdminLoggedIn = ref(localStorage.getItem('isLoggedIn') === 'true');
 const editedBlog = ref(null);
 const showEditBlogModal = ref(false);
@@ -76,40 +76,50 @@ const truncatedBody = (body) => {
   return body.length > 200 ? body.substring(0, 200) + '...' : body;
 };
 
-const showEditModal = ref(false);  // For controlling the visibility of the edit modal
+const fetchBlogs = async () => {
+    const blogsCollection = collection(db, "blogs");
+    const blogsSnapshot = await getDocs(blogsCollection);
+    return blogsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+};
+
+
+onMounted(async () => {
+    blogs.value = await fetchBlogs();
+});
 
 const editBlog = (id) => {
     const blogToEdit = blogs.value.find(blog => blog.id === id);
-    editedBlog.value = { ...blogToEdit };  // Create a copy to avoid directly mutating the state
-    showEditModal.value = true;  // Open the edit modal
+    editedBlog.value = { ...blogToEdit };
+    showEditBlogModal.value = true;
 };
 
-const saveEditedBlog = () => {
-    const blogsFromStorage = JSON.parse(localStorage.getItem('blogs'));
-    const index = blogsFromStorage.blogs.findIndex(blog => blog.id === editedBlog.value.id);
-    blogsFromStorage.blogs[index] = editedBlog.value;
-    localStorage.setItem('blogs', JSON.stringify(blogsFromStorage));
-    blogs.value = blogsFromStorage.blogs;
-    editedBlog.value = null;  // Clear the edited blog
-    showEditBlogModal.value = false;
-    showEditModal.value = false;  // Close the edit modal after saving
+const saveEditedBlog = async () => {
+    if (editedBlog.value.id) {
+        const blogRef = doc(db, "blogs", editedBlog.value.id);
+        await updateDoc(blogRef, {
+            title: editedBlog.value.title, 
+            body: editedBlog.value.body 
+        });
+        blogs.value = await fetchBlogs();
+        editedBlog.value = null;
+        showEditBlogModal.value = false;
+    }
 };
 
 const closeEditModal = () => {
-    showEditModal.value = false;  // Close the modal
-    editedBlog.value = {};        // Clear the edited blog
+    showEditBlogModal.value = false;
+    editedBlog.value = null;
 };
 
-const deleteBlog = (id) => {
-    const blogsFromStorage = JSON.parse(localStorage.getItem('blogs'));
-    const updatedBlogs = blogsFromStorage.blogs.filter(blog => blog.id !== id);
-    blogsFromStorage.blogs = updatedBlogs;
-    localStorage.setItem('blogs', JSON.stringify(blogsFromStorage));
-    blogs.value = updatedBlogs;
+const deleteBlog = async (id) => {
+    if (window.confirm("Are you sure you want to delete this blog post? This action cannot be undone.")) {
+        const blogRef = doc(db, "blogs", id);
+        await deleteDoc(blogRef);
+        blogs.value = blogs.value.filter(blog => blog.id !== id);
+    }
 };
 
 const showAddBlogModal = ref(false);
-
 const newBlog = ref({
     title: "",
     body: ""
@@ -119,27 +129,19 @@ const addBlog = () => {
     showAddBlogModal.value = true;
 };
 
-const saveNewBlog = () => {
+const saveNewBlog = async () => {
     if (newBlog.value.title && newBlog.value.body) {
-    const blogsFromStorage = JSON.parse(localStorage.getItem('blogs'));
-    const newId = blogsFromStorage.blogs.length + 1;  // Simple ID incrementation
-
-    const updatedBlog = { 
-    id: newId, 
-    title: newBlog.value.title, 
-    body: newBlog.value.body 
-};
-
-    blogsFromStorage.blogs.push(updatedBlog);
-    localStorage.setItem('blogs', JSON.stringify(blogsFromStorage));
-
-    // Refresh our local blogs data
-    blogs.value = blogsFromStorage.blogs;
-
-    showAddBlogModal.value = false;
+        await addDoc(collection(db, "blogs"), {
+            title: newBlog.value.title, 
+            body: newBlog.value.body 
+        });
+        blogs.value = await fetchBlogs();
+        showAddBlogModal.value = false;
     }
 };
+
 </script>
+
 
 
 <style scoped>

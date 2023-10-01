@@ -1,21 +1,29 @@
 <script setup>
+import { ref } from 'vue';  // Import 'ref' for reactivity
 import { RouterLink, RouterView } from 'vue-router'
 import FooterComponent from './components/FooterComponent.vue';
 import TopBanner from './components/TopBanner.vue';
+
+const menuToggle = ref(false);  // To control the checkbox
+
+// Function to close the menu
+const closeMenu = () => {
+    menuToggle.value = false;
+};
 </script>
 
 <template>
 <div id="app">
     <TopBanner />  
   <div class="nav-container">
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <input type="checkbox" v-model="menuToggle" id="menu-toggle" class="menu-toggle">
     <label for="menu-toggle" class="dropdown-btn">Menu</label>
     <div class="links-container">
-      <RouterLink class="nav-link" to="/">Home</RouterLink>
-      <RouterLink class="nav-link" to="/about">About</RouterLink>
-      <RouterLink class="nav-link" to="/blogs">Blog</RouterLink>
-      <RouterLink class="nav-link" to="/CV">CV</RouterLink>
-      <RouterLink class="nav-link" to="/admin-auth">Admin Registration</RouterLink>
+      <RouterLink class="nav-link" to="/" @click="closeMenu">Home</RouterLink>
+      <RouterLink class="nav-link" to="/about" @click="closeMenu">About</RouterLink>
+      <RouterLink class="nav-link" to="/blogs" @click="closeMenu">Blog</RouterLink>
+      <RouterLink class="nav-link" to="/CV" @click="closeMenu">CV</RouterLink>
+      <RouterLink class="nav-link" to="/admin-auth" @click="closeMenu">Admin Registration</RouterLink>
     </div>
   </div>
 </div>  
@@ -65,6 +73,7 @@ body {
     position: relative;
     flex-wrap: wrap;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); /* Subtle Shadow */
+    z-index: 1000;  /* Add a high z-index value to ensure it's on top */
 }
 
 .nav-link {
@@ -125,6 +134,7 @@ body {
     right: 0;
     background-color: #fff;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+    z-index: 1001;  /* Slightly higher than its parent to ensure it's on top */
   }
 
   .menu-toggle:checked + .dropdown-btn + .links-container {

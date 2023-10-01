@@ -89,4 +89,31 @@
 .download-btn:hover {
   background-color: #007BFF;
 }
+
+@media (max-width: 768px) {
+  .about-me-page {
+    flex-direction: column; /* Stack children vertically */
+    padding: 4%;
+  }
+
+  .profile-image {
+    padding-right: 0;
+    padding-left: 0;
+    margin-bottom: 20px; /* Add some spacing between the image and the content */
+  }
+
+  .profile-image img.hover-effect {
+    width: 80%;  /* Reduce the image width */
+    display: block; /* Ensure image is centered */
+    margin: 0 auto; /* Center the image horizontally */
+  }
+
+  .about-content {
+    padding: 10px; /* Reduce the padding a bit for smaller screens */
+  }
+
+  .about-content h1 {
+    font-size: 2em; /* Reduce the font size for the title */
+  }
+}
 </style>

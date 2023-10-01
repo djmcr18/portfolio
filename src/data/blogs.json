@@ -1,3 +1,5 @@
+// No longer required as firestore database has been implemented to ensure admin features were still available upon netlify publish.
+
 {
     "blogs": [
         {
