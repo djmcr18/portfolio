@@ -307,5 +307,12 @@ a:hover {
         box-sizing: border-box; /* Ensure padding and border are included in the total width */
         margin-bottom: 15px;
     }
+    .left-panel .contact-info {
+        padding-left: 15px;  /* Adjust padding as needed */
+    }
+
+    .left-panel .languages .progress {
+        margin: 20px 25px;     /* Adjust margin as needed */
+    }
 }
 </style>
