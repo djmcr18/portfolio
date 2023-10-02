@@ -308,7 +308,7 @@ a:hover {
         margin-bottom: 15px;
     }
     .left-panel .contact-info {
-        padding-left: 15px;  /* Adjust padding as needed */
+        padding-left: 20px;  /* Adjust padding as needed */
     }
 
     .left-panel .languages .progress {
